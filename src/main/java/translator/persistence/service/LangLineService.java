@@ -24,6 +24,7 @@ public class LangLineService {
 	public void add(LocalizationModel line) {
 		lineDao.persist(line);
 	}
+	
 	@Transactional
 	public void addAll(Collection<LocalizationModel> model){
 		for(LocalizationModel line : model){

@@ -51,11 +51,7 @@ public class FirstLangDAOImpl implements LineDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<LocalizationModel> findVoidRecords() {
-		
-		 Query query = em.createQuery("SELECT LocalizationModel FROM LocalizationModel l where l.secondLang IS NULL");
-				 List resultList = query.getResultList();
-				 logger.debug("query result size: " +resultList.size());
-				 return resultList;
+		return em.createQuery("FROM LocalizationModel l where l.secondLang IS NULL").getResultList();
 	}
 
 	@Override
