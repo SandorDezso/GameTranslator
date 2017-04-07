@@ -80,7 +80,7 @@
                         <Button fx:id="prevButton" mnemonicParsing="false" text="Előző" />
                         <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nextLine" text="Következő" />
                         <Button fx:id="loadbutton" mnemonicParsing="false" onAction="#load" text="Load" />
-                        <ToggleButton mnemonicParsing="false" styleClass="toggleButton" text="Second Lang" />
+                        <ToggleButton fx:id="secondLangSearch" mnemonicParsing="false" onAction="#secondLangPropChanged" styleClass="toggleButton" text="Second Lang" />
                      </children>
                   </HBox>
                   <TextArea fx:id="previewBox" prefHeight="259.0" prefWidth="377.0" />

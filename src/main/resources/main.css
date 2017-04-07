@@ -41,3 +41,14 @@
 	-fx-font-family: "Tahoma";
 	-fx-font-size: 14;
 	-fx-font-weight: bold;}
+	
+.toggleButton:hover{
+	  -fx-background-color: #1e6b02;
+    -fx-border-color:  #48BD31;
+    -fx-text-fill: #48BD31;
+}
+.toggleButton:selected{
+	   -fx-background-color: #1e6b02;
+    -fx-border-color: #1e6b02;
+    -fx-text-fill: #48BD31;
+}

@@ -26,7 +26,6 @@ public class FirstLangDAOImpl implements LineDAO {
 	private EntityManager em;
 
 	public FirstLangDAOImpl() {
-		//test
 	}
 
 	@Override
@@ -68,6 +67,11 @@ public class FirstLangDAOImpl implements LineDAO {
 		Query query = em.createQuery("FROM LocalizationModel AS l WHERE l.firstLang LIKE CONCAT('%',?1,'%')");
 		query.setParameter(1, first);
 		return query.getResultList();
+	}
+
+	@Override
+	public List<LocalizationModel> findCompleteRecords() {
+		return em.createQuery("FROM LocalizationModel l where l.secondLang IS NOT NULL").getResultList();
 	}
 
 }

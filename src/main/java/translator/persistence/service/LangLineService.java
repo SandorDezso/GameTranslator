@@ -53,6 +53,11 @@ public class LangLineService {
 	public List<LocalizationModel> listByFirstLang(String str){
 		return lineDao.findByFirstLang(str);
 	}
+	
+	public List<LocalizationModel> listBySecondLang(String str){
+		
+		return lineDao.findCompleteRecords();
+	}
 	public class LinePersistTask extends Task<Void> {
 		long progress = 0;
 		List<LocalizationModel> lines;

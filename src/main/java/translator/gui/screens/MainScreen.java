@@ -25,10 +25,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import translator.control.SearchControll;
 import translator.gui.Presentation;
 import translator.gui.ScreensConfig;
 import translator.persistence.model.LocalizationModel;
 import translator.persistence.service.LangLineService;
+import javafx.scene.control.ToggleButton;
 
 public class MainScreen extends Presentation {
 
@@ -71,15 +73,19 @@ public class MainScreen extends Presentation {
 	TextArea previewBox;
 	ObservableList<LocalizationModel> seasonList;
 
+	@FXML
+	ToggleButton secondLangSearch;
+	SearchControll searchControll;
+
 	public MainScreen(ScreensConfig config) {
 		super(config);
 	}
 
 	@FXML
-	public void initialize(){
-		
+	public void initialize() {
+
 	}
-	
+
 	@Override
 	public void postCreate() {
 
@@ -90,13 +96,13 @@ public class MainScreen extends Presentation {
 				.addListener(new ChangeListener<LocalizationModel>() {
 
 					@Override
-					public void changed(ObservableValue<? extends LocalizationModel> observable, LocalizationModel oldValue,
-							LocalizationModel newValue) {
+					public void changed(ObservableValue<? extends LocalizationModel> observable,
+							LocalizationModel oldValue, LocalizationModel newValue) {
 						modelChanged(observable, oldValue, newValue);
 
 					}
 				});
-		
+
 	}
 
 	private void modelChanged(ObservableValue<? extends LocalizationModel> observable, LocalizationModel oldValue,
@@ -115,8 +121,8 @@ public class MainScreen extends Presentation {
 
 	private void refreshScreen() {
 		List<LocalizationModel> listVoidRecords = lineService.listVoidRecords();
-		
-		if (listVoidRecords!=null && !listVoidRecords.isEmpty()) {
+
+		if (listVoidRecords != null && !listVoidRecords.isEmpty()) {
 			actualModel = listVoidRecords.get(0);
 			firstLangTextArea.setText(actualModel.getFirstLang());
 			secondLangTextArea.clear();
@@ -152,7 +158,7 @@ public class MainScreen extends Presentation {
 
 	@FXML
 	public void firstSearchTextChanged(InputMethodEvent event) {
-	
+
 	}
 
 	@FXML
@@ -165,13 +171,26 @@ public class MainScreen extends Presentation {
 
 	}
 
-	@FXML public void firstSearchTextCTyped(KeyEvent event) {
+	@FXML
+	public void firstSearchTextCTyped(KeyEvent event) {
+
 		String text = firstSearchField.getText();
-		LOGGER.error("valami van");
-		List<LocalizationModel> listByFirstLang = lineService.listByFirstLang(text);
-		LOGGER.info("expression: "+text+"; found:"+listByFirstLang.size());
+		List<LocalizationModel> listByFirstLang =searchControll.search(text);
+//		List<LocalizationModel> listByFirstLang = lineService.listByFirstLang(text);
+		LOGGER.info("expression: " + text + "; found:" + listByFirstLang.size());
 		seasonList.clear();
 		seasonList.addAll(listByFirstLang);
+	}
+
+	@FXML
+	public void secondLangPropChanged(ActionEvent event) {
+		ToggleButton tbtn = (ToggleButton) event.getSource();
+		searchControll = SearchControll.secondlang;
+		if (tbtn.isSelected()) {
+			searchControll = SearchControll.secondlang;
+		} else
+			searchControll = SearchControll.secondlang;
+
 	}
 
 }

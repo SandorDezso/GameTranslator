@@ -10,5 +10,6 @@ public interface LineDAO {
 	public void persistAll(List<LocalizationModel> lines);
 	public List<LocalizationModel> findAll();
 	public List<LocalizationModel> findVoidRecords();
+	public List<LocalizationModel> findCompleteRecords();
 	public void update(LocalizationModel line);
 }
