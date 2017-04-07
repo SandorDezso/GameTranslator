@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+
+<StackPane minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.screens.OpenDialog">
+   <children>
+      <GridPane prefHeight="213.0" prefWidth="444.0">
+         <columnConstraints>
+            <ColumnConstraints maxWidth="132.0" minWidth="10.0" prefWidth="132.0" />
+            <ColumnConstraints maxWidth="177.0" minWidth="10.0" prefWidth="145.0" />
+            <ColumnConstraints maxWidth="239.0" minWidth="10.0" prefWidth="167.0" />
+            <ColumnConstraints />
+            <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="50.0" />
+            <RowConstraints maxHeight="159.0" minHeight="10.0" prefHeight="56.0" />
+            <RowConstraints maxHeight="194.0" minHeight="10.0" prefHeight="46.0" />
+            <RowConstraints maxHeight="173.0" minHeight="32.0" prefHeight="95.0" />
+         </rowConstraints>
+         <children>
+            <ProgressBar fx:id="progressBar" prefHeight="14.0" prefWidth="100.0" progress="0.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="firstLangPath" onDragDropped="#firstDrag" onInputMethodTextChanged="#checkPath" GridPane.rowIndex="1" />
+            <TextField fx:id="secondLangPath" onDragDropped="#secondDrag" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#loadFirstLang" text="Tallózás" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onAction="#loadSecondLang" text="Tallózás" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#upload" text="Feltöltés" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <VBox minWidth="-Infinity" prefHeight="200.0" prefWidth="120.0" spacing="10.0" GridPane.rowSpan="2">
+               <children>
+                  <Label text="Első nyelvi fájl" />
+                  <Label fx:id="firstErrorLabel" />
+               </children>
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+               <children>
+                  <Label text="Második nyelvi fájl" />
+                  <Label fx:id="secondErrorLabel" />
+               </children>
+            </VBox>
+            <Button fx:id="exitButton" mnemonicParsing="false" onAction="#exit" text="Exit" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Label fx:id="stateLabel" text="State" GridPane.columnIndex="4" GridPane.rowIndex="3">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+            <ProgressIndicator fx:id="progressIndicator" progress="0.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+   </children>
+</StackPane>

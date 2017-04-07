@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="867.0" prefWidth="1259.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="translator.gui.screens.MainScreen">
+   <children>
+      <BorderPane fx:id="innerRoot" prefHeight="600.0" prefWidth="949.0">
+               <top>
+                  <MenuBar prefHeight="35.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+                    <menus>
+                      <Menu mnemonicParsing="false" text="File">
+                        <items>
+                        <MenuItem fx:id="openMenuItem" mnemonicParsing="false" onAction="#showOpenDialog" text="Open" />
+                        <MenuItem mnemonicParsing="false" onAction="#save" text="Save">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                          <MenuItem mnemonicParsing="false" text="Close" />
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Edit">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="Delete" />
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Help">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="About" />
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+               </top>
+               <center>
+                  <VBox prefHeight="550.0" prefWidth="460.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <TextArea fx:id="firstLangTextArea" editable="false" prefHeight="475.0" prefWidth="391.0" promptText="angol" />
+                        <TextArea fx:id="secondLangTextArea" prefHeight="475.0" prefWidth="392.0" promptText="magyar" />
+                     </children>
+                  </VBox>
+               </center>
+         <right>
+            <VBox prefHeight="539.0" prefWidth="144.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField fx:id="dictionaryField" promptText="Szótárazandó szó" />
+                  <Button fx:id="dictionarySearch" mnemonicParsing="false" text="Button" />
+                  <ListView prefHeight="200.0" prefWidth="152.0" />
+               </children>
+            </VBox>
+         </right>
+         <left>
+            <VBox prefHeight="782.0" prefWidth="377.0" spacing="10.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="242.0" prefWidth="284.0">
+                     <children>
+                        <Label prefHeight="57.0" prefWidth="95.0" text="%valamiLabel" textAlignment="CENTER">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin></Label>
+                        <TextField fx:id="firstSearchField" onInputMethodTextChanged="#firstSearchTextChanged" onKeyTyped="#firstSearchTextCTyped">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding></TextField>
+                        <ListView fx:id="firstSearchFieldResult" onMouseClicked="#listMouseClicked" prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                  </VBox>
+                  <HBox prefHeight="56.0" prefWidth="377.0" spacing="10.0">
+                     <children>
+                        <Button defaultButton="true" lineSpacing="5.0" mnemonicParsing="false" onAction="#save" text="Mentés" />
+                        <Button fx:id="prevButton" mnemonicParsing="false" text="Előző" />
+                        <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nextLine" text="Következő" />
+                        <Button fx:id="loadbutton" mnemonicParsing="false" onAction="#load" text="Load" />
+                        <ToggleButton mnemonicParsing="false" styleClass="toggleButton" text="Second Lang" />
+                     </children>
+                  </HBox>
+                  <TextArea fx:id="previewBox" prefHeight="259.0" prefWidth="377.0" />
+               </children>
+            </VBox>
+         </left>
+         <bottom>
+            <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <items>
+                <Button mnemonicParsing="false" text="Button" />
+                  <ProgressIndicator fx:id="translateProgressIndicator" progress="0.0" />
+              </items>
+            </ToolBar>
+         </bottom>
+            </BorderPane>
+   </children>
+</StackPane>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.8.3.201612191259-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+		<config>java:translator.config.PersistenceConfig</config>
+		<config>java:translator.config.AppConfig</config>
+		<config>java:translator.control.factory.ParseFactory</config>
+		<config>java:translator.gui.ScreensConfig</config>
+		<config>java:translator.persistence.dao.impl.FirstLangDAOImpl</config>
+		<config>java:translator.uimodel.LanguageModel</config>
+	</configs>
+	<autoconfigs>
+	</autoconfigs>
+	<configSets>
+		<configSet>
+			<name><![CDATA[DefaultConfigSet]]></name>
+			<allowBeanDefinitionOverriding>true</allowBeanDefinitionOverriding>
+			<incomplete>false</incomplete>
+			<configs>
+				<config>java:translator.config.AppConfig</config>
+				<config>java:translator.config.PersistenceConfig</config>
+				<config>java:translator.gui.ScreensConfig</config>
+			</configs>
+			<profiles>
+			</profiles>
+		</configSet>
+	</configSets>
+</beansProjectDescription>
