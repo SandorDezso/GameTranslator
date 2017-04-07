@@ -26,6 +26,7 @@ public class FirstLangDAOImpl implements LineDAO {
 	private EntityManager em;
 
 	public FirstLangDAOImpl() {
+		//test
 	}
 
 	@Override
