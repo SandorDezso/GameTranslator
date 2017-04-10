@@ -75,6 +75,7 @@ public class MainScreen extends Presentation {
 
 	@FXML
 	ToggleButton secondLangSearch;
+	@Autowired
 	SearchControll searchControll;
 
 	public MainScreen(ScreensConfig config) {
@@ -175,11 +176,11 @@ public class MainScreen extends Presentation {
 	public void firstSearchTextCTyped(KeyEvent event) {
 
 		String text = firstSearchField.getText();
-		List<LocalizationModel> listByFirstLang =searchControll.search(text);
-//		List<LocalizationModel> listByFirstLang = lineService.listByFirstLang(text);
-		LOGGER.info("expression: " + text + "; found:" + listByFirstLang.size());
+		List<LocalizationModel> resultList =searchControll.search(text);
+		if(resultList==null) return;
+		LOGGER.info("expression: " + text + "; found:" + resultList.size());
 		seasonList.clear();
-		seasonList.addAll(listByFirstLang);
+		seasonList.addAll(resultList);
 	}
 
 	@FXML

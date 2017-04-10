@@ -11,6 +11,7 @@ import translator.provider.LocalizationStringProvider;
 
 public class LocalizationStringFileProvider implements LocalizationStringProvider {
 	private File file;
+	
 	public LocalizationStringFileProvider() {
 		// TODO Auto-generated constructor stub
 	}
@@ -22,6 +23,7 @@ public class LocalizationStringFileProvider implements LocalizationStringProvide
 		return null;
 	}
 	
+	//TODO apply the builder pattern
 	public LocalizationStringFileProvider setThe(File file){
 		this.file=file;
 		return this;

@@ -3,10 +3,6 @@ package translator.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
 
 public class LineDomainModel implements Serializable {
 	/**
